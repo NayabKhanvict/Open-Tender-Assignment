@@ -39,9 +39,11 @@
     display: flex;
     justify-content: space-between;
     padding: 14px 0;
+    background-color: $brand1;
+    transition: all 0.5s ease-in-out;
+
 
     &.sticky {
-        background-color: $brand1;
         position: fixed;
         top: 0;
         max-width: calc(1440px - 160px);

@@ -3,6 +3,7 @@
 .CatgWrap {
     margin-top: 31px;
     padding-top: 40px;  // sum of both is 71ps(required)
+    transition: all 0.5s ease-in-out;
 
     &.sticky {
         margin-top: 0;
