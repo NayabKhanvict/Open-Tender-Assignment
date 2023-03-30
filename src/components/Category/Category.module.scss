@@ -1,0 +1,23 @@
+@import '../../assets/scss/variables';
+
+.CatgWrap {
+    margin-top: 31px;
+    padding-top: 40px;  // sum of both is 71ps(required)
+
+    &.sticky {
+        margin-top: 0;
+        padding-top: 130px;
+    }
+}
+
+.Catghead {
+    padding-bottom: 28px;
+}
+
+.CatgTitle {
+    font-family: $font-family-primary;
+    font-weight: $font-weight-medium;
+    font-size: 32px;
+    line-height: 32px;
+    color: $grey-1;
+}

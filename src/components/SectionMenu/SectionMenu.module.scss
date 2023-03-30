@@ -1,0 +1,40 @@
+@import '../../assets/scss/variables';
+
+.SectWrap {
+    border-top: 2px solid $brand2;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 52px;
+    padding-right: 71px;
+    padding-top: 48px;
+}
+
+.SectItems {
+    align-items: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.SectDetail {
+    margin-right: 63px;
+    max-width: 222px;
+}
+
+.SectTitle {
+    color: $grey-1;
+    font-family: $font-family-primary;
+    font-size: 24px;
+    font-weight: $font-weight-medium;
+    line-height: 32px;
+    margin-bottom: 17px;
+    letter-spacing: -0.2px;
+}
+
+.SectText {
+    color: $grey-2;
+    font-family: $font-family-primary;
+    font-size: 17px;
+    font-weight: $font-weight-normal;
+    line-height: 150%;
+}

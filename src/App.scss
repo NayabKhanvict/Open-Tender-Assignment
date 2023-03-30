@@ -1,0 +1,26 @@
+@import './assets/scss/fonts';
+@import './assets/scss/variables';
+
+* {
+  box-sizing: border-box;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+html {
+  scroll-behavior:smooth;
+}
+
+body {
+  font-family: $font-family-primary;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1440px;
+  padding: 36px 80px 120px;
+  background-color: $brand1;
+  position: relative;
+}
