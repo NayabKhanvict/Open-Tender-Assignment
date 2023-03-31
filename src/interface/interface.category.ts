@@ -9,5 +9,6 @@ export interface ICategorySection {
 }
 export interface ICardItem {
     title: string;
-    detail: string;
+    detail?: string;
+    checklist?: string[];
 }

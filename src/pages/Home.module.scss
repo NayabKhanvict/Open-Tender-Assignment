@@ -24,9 +24,9 @@
     font-size: 18px;
     font-weight: $font-weight-normal;
     line-height: 150%;
-    padding-top: 40px;
+    margin-top: 40px;
     max-width: 420px;
-    padding-bottom: 43px;
+    margin-bottom: 43px;
 }
 
 .barWrap {
@@ -40,7 +40,7 @@
     justify-content: space-between;
     padding: 14px 0;
     background-color: $brand1;
-    transition: all 0.5s ease-in-out;
+    transition: all 1s ease-in-out;
 
 
     &.sticky {
@@ -48,11 +48,12 @@
         top: 0;
         max-width: calc(1440px - 160px);
         width: 100%;
+        z-index: 1;
     }
 }
 
 .categories {
-
+ display: flex;
 }
 
 .category {
@@ -61,6 +62,7 @@
     font-size: 16px;
     font-weight: $font-weight-medium;
     margin-right: 48px;
+    cursor: pointer;
 
     &:last-child {
         margin-right: 0;

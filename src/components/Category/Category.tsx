@@ -1,24 +1,27 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import SectionMenu from '../SectionMenu/SecionMenu';
 import styles from './Category.module.scss';
 import { ICategorySection } from '../../interface/interface.category';
 interface Props {
-  CategoryId?: string;
+  ref?: any;
   section?: ICategorySection[];
   scroll?: boolean;
+  categoryTitle?: string;
 
 }
-const Category = ({ CategoryId, section, scroll }: Props) => {
-  return (
-    <div className={`${styles.CatgWrap} ${scroll? styles.sticky : ''}`} id={CategoryId}>
+const Category = forwardRef<HTMLDivElement, Props>(
+  ({ categoryTitle, section, scroll }, ref) => {
+    return (
+    <div id={categoryTitle} className={`${styles.CatgWrap} ${scroll? styles.sticky : ''}`} ref={ref}>
       <div className={styles.Catghead}>
-        <h2 className={styles.CatgTitle}>{CategoryId}</h2>
+        <h2 className={styles.CatgTitle}>{categoryTitle}</h2>
       </div>
         {section?.map((sec: ICategorySection, i: number) => (
-          <SectionMenu item={sec.item} sectiontitle={sec.sectiontitle} sectiondetail={sec.sectiondetail} />
+          <SectionMenu key={i} item={sec.item} sectiontitle={sec.sectiontitle} sectiondetail={sec.sectiondetail} />
         ))}
     </div>
   )
-}
+  }
+);
 
 export default Category

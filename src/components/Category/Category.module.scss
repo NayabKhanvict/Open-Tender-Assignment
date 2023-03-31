@@ -3,10 +3,10 @@
 .CatgWrap {
     padding-top: 71px;
     transition: all 0.5s ease-in-out;
+    scroll-margin-top: 71px;
 
     &.sticky {
-        margin-top: 0;
-        padding-top: 130px;
+        padding-top: 120px;
     }
 }
 

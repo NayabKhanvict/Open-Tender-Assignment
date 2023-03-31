@@ -1,18 +1,32 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Category from '../components/Category/Category';
 import styles from './Home.module.scss';
 import { category_data } from '../data/constants';
 import { ICategoryState } from '../interface/interface.category';
 import { Link } from 'react-router-dom';
-
+type Refs = Record<string, any>;
 const Home = () => {
+  const refs = useRef<Refs>({});
   const [scroll, setScroll] = useState(false);
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      setScroll(window.scrollY > 256);
+      setScroll(window.scrollY > 248);
+      console.log(window.scrollY);
     });
   }, []);
 
+const scrollDown = (id: any) => {
+  const currentRef = refs.current[id];
+  if (currentRef) {
+    window.scrollTo({
+      top: currentRef.offsetTop,
+      behavior: 'smooth',
+    });
+  }
+};
+const handleMapChildRef = (id: string) => (ref: any) => {
+  refs.current[id] = ref ?? null;
+};
     return (
       <div className='container'>
         <h1 className={styles.pageTitle}>Mobile App</h1>
@@ -24,8 +38,20 @@ const Home = () => {
         <div className={styles.barWrap}>
           <div className={`${styles.categoryBar}  ${scroll? styles.sticky : ''}`}>
             <div className={styles.categories}>
-              <a href="#Category#1" className={styles.category} role="button"> Category#1</a>
-              <a href="#Category#2" className={styles.category} role="button"> Category #2</a>
+              <div
+                className={styles.category}
+                role="button"
+                onClick={() => scrollDown("Category#1")}
+              >
+                  Category#1
+                </div>
+              <div
+                className={styles.category}
+                role="button"
+                onClick={() => scrollDown("Category#2")}
+              >
+                Category #2
+              </div>
               <a href="#" className={styles.category} role="button">Category #3</a>
               <a href="#" className={styles.category} role="button">Category #4</a>
               <a href="#" className={styles.category} role="button">Category #5</a>
@@ -43,7 +69,8 @@ const Home = () => {
           {category_data.map((category: ICategoryState, i: number) => (
             <Category
               key={i}
-              CategoryId={category.categorytitle}
+              categoryTitle={category.categorytitle}
+              ref={handleMapChildRef(category.categorytitle)}
               section={category.section}
               scroll={scroll}
             />
