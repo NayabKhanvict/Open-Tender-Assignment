@@ -11,8 +11,8 @@ const ItemCard = ({title, detail, checklist}: Props) => {
     <div className={styles.ItemWrap}>
         <img src={Image} className={styles.ItemImg} alt="Image" />
         <h4 className={styles.ItemTitle}>{title}</h4>
-        {!detail? '' : <p className={styles.ItemText}>{detail}</p>}
-        {!checklist? '' :
+        {detail && <p className={styles.ItemText}>{detail}</p>}
+        {checklist &&
           <ul className={styles.ItemList}>
             {checklist.map((list: any, i: number) => (
               <li

@@ -1,5 +1,4 @@
 export interface ICategoryState {
-    // ref: any;
     categorytitle: string;
     section: ICategorySection[];
 }
