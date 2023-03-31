@@ -21,6 +21,7 @@ const SecionMenu = ({item, sectiontitle, sectiondetail}: Props) => {
               key={i}
               title={card.title}
               detail={card.detail}
+              checklist={card.checklist}
             />
         ))}
       </div>

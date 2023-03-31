@@ -24,7 +24,7 @@ export const category_data: ICategoryState[] = [
         sectiondetail: "Tag menu items with allergens so they can be displayed on your menu, and use our allergen filter to allow your customers to highlight items containing certain allergens as they order.",
         item: [{
           title: "Example #1",
-          detail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          checklist: ["Design by Configuration","Built with React Native","Design by Configuration","Built with React Native"],
         },
         {
           title: "Example #2",
