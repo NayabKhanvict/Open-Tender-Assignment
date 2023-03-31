@@ -1,9 +1,9 @@
 import React from 'react'
-import { parseJsonText } from 'typescript';
 import ItemCard from '../ItemCard/ItemCard'
 import styles from './SectionMenu.module.scss';
+import { ICardItem } from '../../interface/interface.category';
 interface  Props {
-  item?: any;
+  item?: ICardItem[];
   sectiontitle?: string;
   sectiondetail?: string;
 }
@@ -16,7 +16,7 @@ const SecionMenu = ({item, sectiontitle, sectiondetail}: Props) => {
         <p className={styles.SectText}>{sectiondetail}</p>
       </div>
       <div className={styles.SectItems}>
-      {item.map((card: any, i: number) => (
+      {item?.map((card: any, i: number) => (
             <ItemCard
               key={i}
               title={card.title}
