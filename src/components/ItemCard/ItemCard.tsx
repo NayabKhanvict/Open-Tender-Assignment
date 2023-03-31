@@ -11,25 +11,19 @@ const ItemCard = ({title, detail, checklist}: Props) => {
     <div className={styles.ItemWrap}>
         <img src={Image} className={styles.ItemImg} alt="Image" />
         <h4 className={styles.ItemTitle}>{title}</h4>
-        <p className={styles.ItemText}>{detail}</p>
+        {!detail? '' : <p className={styles.ItemText}>{detail}</p>}
         {!checklist? '' :
-        <ul className={styles.ItemList}>
-
-          {checklist.map((list: any, i: number) => (
-            <li
-              className={styles.ItemListItems}
-              key={i}
-              >
-                {list}
-              </li>
-          ))}
-          {/* <li className={styles.ItemListItems}>Design by Configuration</li>
-          <li className={styles.ItemListItems}>Built with React Native</li>
-          <li className={styles.ItemListItems}>Design by Configuration</li>
-          <li className={styles.ItemListItems}>Built with React Native</li> */}
-        </ul>
+          <ul className={styles.ItemList}>
+            {checklist.map((list: any, i: number) => (
+              <li
+                className={styles.ItemListItems}
+                key={i}
+                >
+                  {list}
+                </li>
+            ))}
+          </ul>
         }
-        {/* checklist code */}
     </div>
   )
 }
