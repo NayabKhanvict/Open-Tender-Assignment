@@ -4,10 +4,9 @@ import styles from './Home.module.scss';
 import { category_data } from '../data/constants';
 import { ICategoryState } from '../interface/interface.category';
 import { Link } from 'react-router-dom';
-type Refs = Record<string, HTMLDivElement>;
+type Refs = Record<string, any>;
 const Home = () => {
   const refs = useRef<Refs>({});
-  // const [scrollTo, setScrollTo] = useState("Category#1");
   const [scroll, setScroll] = useState(false);
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -15,17 +14,18 @@ const Home = () => {
     });
   }, []);
 
-const scrollDown = (ref: any) => {
-  window.scrollTo({
-    top: ref.current.offsetTop,
-    behavior: 'smooth',
-  });
+const scrollDown = (id: any) => {
+  const currentRef = refs.current[id];
+  if (currentRef) {
+    window.scrollTo({
+      top: currentRef.offsetTop,
+      behavior: 'smooth',
+    });
+  }
 };
-const handleMapChildRef = (id: string) => (ref: HTMLDivElement) => {
+const handleMapChildRef = (id: string) => (ref: any) => {
   refs.current[id] = ref ?? null;
 };
-console.log(refs.current);
-
     return (
       <div className='container'>
         <h1 className={styles.pageTitle}>Mobile App</h1>
@@ -40,14 +40,14 @@ console.log(refs.current);
               <div
                 className={styles.category}
                 role="button"
-                // onClick={() => scrollDown(refs.current["Category#1"])}
+                onClick={() => scrollDown("Category#1")}
               >
                   Category#1
                 </div>
               <div
                 className={styles.category}
                 role="button"
-                // onClick={() => scrollDown(refs.current["Category#2"])}
+                onClick={() => scrollDown("Category#2")}
               >
                 Category #2
               </div>
@@ -68,7 +68,7 @@ console.log(refs.current);
           {category_data.map((category: ICategoryState, i: number) => (
             <Category
               key={i}
-              CategoryTitle={category.categorytitle}
+              categoryTitle={category.categorytitle}
               ref={handleMapChildRef(category.categorytitle)}
               section={category.section}
               scroll={scroll}
